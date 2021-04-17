@@ -30,19 +30,19 @@
                 <div class="col-md-5 center-item">
                   <div class="input-group number-spinner">
                     <button class="btn btn-default">
-                      <i id="shopingCardminus" class="fas fa-minus"></i>
+                      <i id="CaseDecrease1" class="fas fa-minus"></i>
                     </button>
                     <input
                       type="text"
                       class="form-control text-center"
                       value="1"
-                      id="currentValue"
+                      id="CaseValue1"
                     />
                     <button class="btn btn-default">
-                      <i id="shopingCardPlus" class="fas fa-plus"></i>
+                      <i id="CaseIncrease1" class="fas fa-plus"></i>
                     </button>
                   </div>
-                  <h5>$<span id="currentPrice">1219</span></h5>
+                  <h5>$<span id="caseTotalAmaount1">1219</span></h5>
                   <img src="images/remove.png" alt="" class="remove-item" />
                 </div>
               </div>
@@ -57,19 +57,19 @@
                 <div class="col-md-5 center-item">
                   <div class="input-group number-spinner">
                     <button class="btn btn-default">
-                      <i id="phoneCaseMaines" class="fas fa-minus"></i>
+                      <i id="CaseDecrease" class="fas fa-minus"></i>
                     </button>
                     <input
                       type="text"
                       class="form-control text-center"
                       value="1"
-                      id="currentValue2"
+                      id="CaseValue"
                     />
                     <button class="btn btn-default">
-                      <i id="phoneCasePlus" class="fas fa-plus"></i>
+                      <i id="CaseIncrease" class="fas fa-plus"></i>
                     </button>
                   </div>
-                  <h5>$59</h5>
+                  <h5>$<span id="caseTotalAmaount">59</span></h5>
                   <img src="images/remove.png" alt="" class="remove-item" />
                 </div>
               </div>
@@ -84,7 +84,7 @@
                 </div>
 
                 <div class="col-md-4 status">
-                  <h5>$ <span id="priceRate">1,278</span></h5>
+                  <h5>$ <span id="subtotal">1,278</span></h5>
                   <h5>$0</h5>
                   <h5>$ <span id="allTotal">1,278</span></h5>
                 </div>
@@ -99,6 +99,61 @@
         </div>
       </div>
     </section>
+
+    <script>
+      document
+        .getElementById("CaseIncrease1")
+        .addEventListener("click", function () {
+          handelarProductChange2(true);
+        });
+      document
+        .getElementById("CaseDecrease1")
+        .addEventListener("click", function () {
+          handelarProductChange2(false);
+        });
+
+      document
+        .getElementById("CaseIncrease")
+        .addEventListener("click", function () {
+          handelarProductChange(true);
+        });
+
+      document
+        .getElementById("CaseDecrease")
+        .addEventListener("click", function () {
+          handelarProductChange(false);
+        });
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      function handelarProductChange2(isIncrease) {
+        const caseValue = document.getElementById("CaseValue1");
+        const caseInput = parseInt(caseValue.value);
+        let caseNewCount = caseInput;
+        if (isIncrease == true) {
+          caseNewCount = caseInput + 1;
+        } else if (isIncrease == false && caseInput > 0) {
+          caseNewCount = caseInput - 1;
+        }
+        caseValue.value = caseNewCount;
+        const caseTotal = caseNewCount * 1219;
+        document.getElementById("caseTotalAmaount1").innerText = caseTotal;
+      }
+      ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+      function handelarProductChange(isIncrease) {
+        const caseValue = document.getElementById("CaseValue");
+        const caseInput = parseInt(caseValue.value);
+        let caseNewCount = caseInput;
+        if (isIncrease == true) {
+          caseNewCount = caseInput + 1;
+        } else if (isIncrease == false && caseInput > 0) {
+          caseNewCount = caseInput - 1;
+        }
+        caseValue.value = caseNewCount;
+        const caseTotal = caseNewCount * 59;
+        document.getElementById("caseTotalAmaount").innerText = caseTotal;
+      }
+    </script>
     <script src="index.js"></script>
   </body>
 </html>
