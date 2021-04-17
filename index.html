@@ -85,8 +85,8 @@
 
                 <div class="col-md-4 status">
                   <h5>$ <span id="subtotal">1,278</span></h5>
-                  <h5>$0</h5>
-                  <h5>$ <span id="allTotal">1,278</span></h5>
+                  <h5 id="tex-total">$0</h5>
+                  <h5>$ <span id="grandTotal">1,278</span></h5>
                 </div>
               </div>
             </div>
@@ -100,60 +100,6 @@
       </div>
     </section>
 
-    <script>
-      document
-        .getElementById("CaseIncrease1")
-        .addEventListener("click", function () {
-          handelarProductChange2(true);
-        });
-      document
-        .getElementById("CaseDecrease1")
-        .addEventListener("click", function () {
-          handelarProductChange2(false);
-        });
-
-      document
-        .getElementById("CaseIncrease")
-        .addEventListener("click", function () {
-          handelarProductChange(true);
-        });
-
-      document
-        .getElementById("CaseDecrease")
-        .addEventListener("click", function () {
-          handelarProductChange(false);
-        });
-      ////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-      ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-      function handelarProductChange2(isIncrease) {
-        const caseValue = document.getElementById("CaseValue1");
-        const caseInput = parseInt(caseValue.value);
-        let caseNewCount = caseInput;
-        if (isIncrease == true) {
-          caseNewCount = caseInput + 1;
-        } else if (isIncrease == false && caseInput > 0) {
-          caseNewCount = caseInput - 1;
-        }
-        caseValue.value = caseNewCount;
-        const caseTotal = caseNewCount * 1219;
-        document.getElementById("caseTotalAmaount1").innerText = caseTotal;
-      }
-      ///////////////////////////////////////////////////////////////////////////////////////////////////////////
-      function handelarProductChange(isIncrease) {
-        const caseValue = document.getElementById("CaseValue");
-        const caseInput = parseInt(caseValue.value);
-        let caseNewCount = caseInput;
-        if (isIncrease == true) {
-          caseNewCount = caseInput + 1;
-        } else if (isIncrease == false && caseInput > 0) {
-          caseNewCount = caseInput - 1;
-        }
-        caseValue.value = caseNewCount;
-        const caseTotal = caseNewCount * 59;
-        document.getElementById("caseTotalAmaount").innerText = caseTotal;
-      }
-    </script>
     <script src="index.js"></script>
   </body>
 </html>

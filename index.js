@@ -1,4 +1,66 @@
+document.getElementById("CaseIncrease1").addEventListener("click", function () {
+  handelarProductChange2(true);
+});
+document.getElementById("CaseDecrease1").addEventListener("click", function () {
+  handelarProductChange2(false);
+});
 
+document.getElementById("CaseIncrease").addEventListener("click", function () {
+  handelarProductChange(true);
+});
+
+document.getElementById("CaseDecrease").addEventListener("click", function () {
+  handelarProductChange(false);
+});
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+function calculator() {
+const phoneinput = document.getElementById("CaseValue1");
+const phoneCount = parseFloat(phoneinput.value);
+const caseinput = document.getElementById("CaseValue");
+const caseCount = parseFloat(caseinput.value);
+const subTotal = phoneCount * 1219 + caseCount * 59;
+document.getElementById("subtotal").innerText = subTotal;
+const tex =Math.round(subTotal * 0.1);
+document.getElementById("tex-total").innerText = tex;
+const grandTotal = subTotal + tex;
+document.getElementById("grandTotal").innerText = grandTotal;
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+// function getInputNumber(product) {
+//   const productInput = document.getElementById("product");
+//   const productNumber = parseInt(productInput.value);
+//   return productNumber;
+// }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+function handelarProductChange2(isIncrease) {
+const caseValue = document.getElementById("CaseValue1");
+const caseInput = parseInt(caseValue.value);
+let caseNewCount = caseInput;
+if (isIncrease == true) {
+  caseNewCount = caseInput + 1;
+} else if (isIncrease == false && caseInput > 0) {
+  caseNewCount = caseInput - 1;
+}
+caseValue.value = caseNewCount;
+const caseTotal = caseNewCount * 1219;
+document.getElementById("caseTotalAmaount1").innerText = caseTotal;
+calculator();
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+function handelarProductChange(isIncrease) {
+const caseValue = document.getElementById("CaseValue");
+const caseInput = parseInt(caseValue.value);
+let caseNewCount = caseInput;
+if (isIncrease == true) {
+  caseNewCount = caseInput + 1;
+} else if (isIncrease == false && caseInput > 0) {
+  caseNewCount = caseInput - 1;
+}
+caseValue.value = caseNewCount;
+const caseTotal = caseNewCount * 59;
+document.getElementById("caseTotalAmaount").innerText = caseTotal;
+calculator();
+}
 
 
 
